@@ -1,7 +1,7 @@
 # CMPS 2200 Assignment 3
 ## Answers
 
-**Name:**_________________________
+**Name:** Will Cunningham
 
 
 Place all written answers from `assignment-03.md` here for easier grading.
@@ -11,6 +11,9 @@ Place all written answers from `assignment-03.md` here for easier grading.
 
 - **1b.** Work and span of `isearch` implementation
 
+Work: for L with length $n$, iterate is called $n$ times executing one comparison
+
+This is linear work, so $W(n) = O(n)$
 
 - **1d.** Work and span of `rsearch` implementation
 
