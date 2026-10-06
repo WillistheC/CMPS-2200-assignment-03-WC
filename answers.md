@@ -15,6 +15,14 @@ Work: for L with length $n$, iterate is called $n$ times executing one compariso
 
 This is linear work, so $W(n) = O(n)$
 
+Span: iterate is able to work in parallel, meaning L can be split into $k$ pieces
+
+This makes the longest chain of dependency the length of the longest branch
+
+If the branches are split equally into $k$ pieces, the length of the branch is $h = log{k}{n}$
+
+So, $S(n) = O(n)$
+
 - **1d.** Work and span of `rsearch` implementation
 
 
