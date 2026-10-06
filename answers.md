@@ -11,17 +11,13 @@ Place all written answers from `assignment-03.md` here for easier grading.
 
 - **1b.** Work and span of `isearch` implementation
 
-Work: for L with length $n$, iterate is called $n$ times executing one comparison
+Work: For L with length $n$, the lambda function is called $n$ times, executing one comparison in constant time
 
 This is linear work, so $W(n) = O(n)$
 
-Span: iterate is able to work in parallel, meaning L can be split into $k$ pieces
+Span: Since iterate works on an accumulation of results, it must be done sequentially
 
-This makes the longest chain of dependency the length of the longest branch
-
-If the branches are split equally into $k$ pieces, the length of the branch is $h = log{_k}{n}$
-
-So, $S(n) = O(n)$
+The function is linear, so the dependency chain has length $n$; $S(n) = O(n)$
 
 - **1d.** Work and span of `rsearch` implementation
 
