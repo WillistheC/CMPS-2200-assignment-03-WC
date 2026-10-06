@@ -23,12 +23,17 @@ The function is linear, so the dependency chain has length $n$; $S(n) = O(n)$
 
 Work: Parallelizing the implementation does not change the work, which is still linear: $W(n) = O(n)$
 
-Span: Reduce splits the list into two sub-problems with size $\frac{_n}{2}$
+Span: reduce splits the list into two sub-problems with size $\frac{n}{2}$
 
 The longest chain of dependency is the longest branch: $h = log{_2}{n}$, so $S(n) = O(logn)$
 
 - **1e.** Work and span of `rsearch` using `ureduce`
 
+Work: Again, the work is linear for the same reasons: $W(n) = O(n)$
+
+Span: ureduce splits into two sub-problems with size $\frac{n}{3}$ and $\frac{2n}{3}$
+
+The longest chain of dependency is the longest branch (the branch which allows follow the problem of size $\frac{2n}{3}$: $h = log{_\frac{2}{3}}{n}$, which still gives $S(n) = O(logn)$
 
 **3: Parenthesis Matching**
 
