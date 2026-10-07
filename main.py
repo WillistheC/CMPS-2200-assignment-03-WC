@@ -10,8 +10,7 @@ import math
 # search an unordered list L for a key x using iterate
 # return True or False
 def isearch(L, x):
-    ###TODO
-    pass
+    return iterate(lambda found, item: found or (item == x), False, L)
 
 def iterate(f, x, a):
     # done. do not change me.
@@ -23,8 +22,10 @@ def iterate(f, x, a):
 # search an unordered list L for a key x using reduce
 # return True or False
 def rsearch(L, x):
-    ###TODO
-    pass
+    if len(L) == 0:
+        return False
+    result = reduce(lambda left, right: x if left == x or right == x else None, None, L)
+    return result == x
 
 def reduce(f, id_, a):
     print(a)
@@ -99,8 +100,10 @@ def dedup(a, b):
     >>> dedup([1,2,3], [3,4,5])
     [1,2,3,4,5]
     """
-    ###TODO
-    pass
+    if a[-1] == b[0]:
+        a.pop()
+    return a + b
+
     
 def doc_index_reduce(group):
     """
@@ -116,7 +119,7 @@ def doc_index_reduce(group):
     ('is', [0,1,2])
     """
     ### TODO fix this line
-    return (group[0], group[1])
+    return (group[0], reduce(dedup, [], [[docid] for docid in group[1]]))
 
 def collect(pairs):
     """
@@ -161,8 +164,7 @@ def parens_match_iterative(mylist):
     >>>parens_match_iterative(['('])
     False
     """
-    ### TODO
-    pass
+    return iterate(parens_update, 0, mylist) == 0
 
 
 def parens_update(current_output, next_input):
@@ -177,8 +179,12 @@ def parens_update(current_output, next_input):
     Returns:
       the updated value of `current_output`
     """
-    ###TODO
-    pass
+    if next_input == "(":
+        current_output += 1
+    elif next_input == ")":
+        current_output += -1
+    return current_output
+    
 
 #### Scan solution
 
@@ -199,8 +205,10 @@ def parens_match_scan(mylist):
     False
     
     """
-    ###TODO
-    pass
+    val = list(map(paren_map, mylist))
+    prefix, total = scan(lambda a, b: a + b, 0, val)
+    low = reduce(min_f, 0, prefix)
+    return total == 0 and low >= 0
 
 def scan(f, id_, a):
     """
@@ -267,6 +275,15 @@ def parens_match_dc_helper(mylist):
       L is the number of unmatched left parentheses. This output is used by 
       parens_match_dc to return the final True or False value
     """
-    ###TODO
-    pass
+    if len(mylist) == 0:
+        return (0, 0)
+    if len(mylist) == 1:
+        if mylist[0] == "(":
+            return (0, 1)
+        return (1, 0)
+    mid = len(mylist) // 2
+    i, j = parens_match_dc_helper(mylist[:mid])
+    k, l = parens_match_dc_helper(mylist[mid:])
+    match = min(j, k)
+    return (i + k - match, j + l - match)
     
