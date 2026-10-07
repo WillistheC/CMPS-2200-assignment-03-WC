@@ -58,3 +58,7 @@ Reduce has the same $n$ split across the same tree, but the size is inverted: $W
 So overall: $W(n) = O(n)$ and $S(n) = O(logn)$
 
 - **3f.** Recurrences and Big-Oh solutions for `parens_match_dc_helper`
+
+Work: $W(n) = 2W(\frac{n}{2}) + 1 = O(n)$
+
+Span: It splits each level, so the longest dependency chain is $S(n) = O(logn)$
