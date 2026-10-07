@@ -49,5 +49,12 @@ Therefore, $S(n) = O(2n) = O(n)$
 
 - **3d.** Work and Span for `parens_match_scan`
 
+Map has $n$ calls in constant time: $W(n) = O(n)$ and $S(n) = O(1)$
+
+Scan has $n$ calls split across a branching tree: $W(n) = O(n)$ and $S(n) = O(logn)$
+
+Reduce has the same $n$ split across the same tree, but the size is inverted: $W(n) = O(n)$ and $S(n) = O(logn)$
+
+So overall: $W(n) = O(n)$ and $S(n) = O(logn)$
 
 - **3f.** Recurrences and Big-Oh solutions for `parens_match_dc_helper`
