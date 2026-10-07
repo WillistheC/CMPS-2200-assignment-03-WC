@@ -39,6 +39,13 @@ The longest chain of dependency is the longest branch (the branch which allows f
 
 - **3b.** Recurrences and Big-Oh solutions for `parens_match_iterative`
 
+For mylist of size $n$, iterate will sequentially compare an element at most two times
+
+Work: The worst case is it compares all $n$ elements twice, so $W(n) = O(2n) = O(n)$
+
+Span: Since iterate works on an accumulation of results, it must be sequential, so the longest chain of dependency is the whole algorithim
+
+Therefore, $S(n) = O(2n) = O(n)$
 
 - **3d.** Work and Span for `parens_match_scan`
 
